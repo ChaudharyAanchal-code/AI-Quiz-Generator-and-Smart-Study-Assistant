@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Quiz Generator and Smart Study Assistant</title>
+    <meta name="description" content="Enter any topic and get a simple explanation or a short summary, generated privately on your device.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,500;6..72,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <main class="container">
+        <header class="hero">
+            <h1>AI Quiz Generator and Smart Study Assistant</h1>
+            <p class="intro">Enter a topic to get a simple explanation or a short summary.</p>
+        </header>
+
+        <p id="modelStatus" class="status" data-state="loading" role="status">Checking AI model availability...</p>
+
+        <div class="panel">
+            <label for="topicInput">Enter a topic</label>
+            <textarea id="topicInput" rows="4" placeholder="For example: Photosynthesis"></textarea>
+
+            <div class="buttons">
+                <button id="explainButton" type="button" disabled>Explain Topic</button>
+                <button id="summaryButton" class="accent" type="button" disabled>Create Summary</button>
+                <button id="clearButton" class="secondary" type="button">Clear</button>
+            </div>
+
+            <p id="loadingMessage" class="loading" role="status" hidden>
+                <span class="spinner" aria-hidden="true"></span>
+                Generating your answer. Please wait...
+            </p>
+        </div>
+
+        <section class="result-section" aria-labelledby="resultHeading">
+            <div class="result-head">
+                <h2 id="resultHeading">Result</h2>
+                <button id="copyButton" class="secondary small" type="button" disabled>Copy Result</button>
+            </div>
+            <div id="resultBox" class="result-box" aria-live="polite">Your answer will appear here.</div>
+        </section>
+
+        <p class="note">This project uses the browser's native on-device Prompt API. AI availability depends on your browser and device.</p>
+    </main>
+</body>
+</html>
